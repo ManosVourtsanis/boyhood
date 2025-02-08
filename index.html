@@ -4,35 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h1>Welcome to my Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+<body class="bg-gray-100 text-gray-900 font-[Poppins]">
+    <header class="bg-gray-800 text-white text-center p-6">
+        <h1 class="text-3xl font-bold">Boyhood</h1>
+        <nav class="mt-4">
+            <ul class="flex justify-center space-x-6">
+                <li><a href="#about" class="hover:underline">About</a></li>
+                <li><a href="#projects" class="hover:underline">Projects</a></li>
+                <li><a href="#contact" class="hover:underline">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a software developer passionate about technology and building great products.</p>
+    <section id="about" class="p-10 text-center">
+        <h2 class="text-2xl font-semibold">About Me</h2>
+        <img src="assets/images/profile.jpg" alt="My Photo" class="rounded-2xl mx-auto w-[512px] h-[384px] object-cover">
+        <p class="mt-2">I'm a software developer passionate about technology and building great products.</p>
+        <p class="mt-2">I'm a software developer passionate about technology and building great products.</p>
+        <p class="mt-2">I'm a software developer passionate about technology and building great products.</p>
+        <p class="mt-2">I'm a software developer passionate about technology and building great products.</p>
     </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Coming soon...</p>
+    <section id="projects" class="p-10 bg-gray-200 text-center">
+        <h2 class="text-2xl font-semibold">Projects</h2>
+        <p class="mt-2">Coming soon...</p>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: your.email@example.com</p>
+    <section id="contact" class="p-10 text-center">
+        <h2 class="text-2xl font-semibold">Contact</h2>
+        <p class="mt-2">
+            <a href="mailto:manos.vourtsanis@hotmail.com" class="text-blue-500 hover:underline">manos.vourtsanis@hotmail.com</a>
+        </p>
     </section>
-
-    <script src="script.js"></script>
 </body>
+
 </html>
