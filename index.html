@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Boyhood</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/football.ico">
 </head>
+    
 <body class="bg-gray-100 text-gray-900 font-[Poppins]">
     <header class="bg-gray-800 text-white text-center p-6">
-        <h1 class="text-3xl font-bold">Boyhood</h1>
+        <h1 class="text-3xl font-bold">Manos Vourtsanis</h1>
         <nav class="mt-4">
             <ul class="flex justify-center space-x-6">
                 <li><a href="#about" class="hover:underline">About</a></li>
@@ -22,16 +30,48 @@
     <section id="about" class="p-10 text-center">
         <h2 class="text-2xl font-semibold">About Me</h2>
         <img src="assets/images/profile.jpg" alt="My Photo" class="rounded-2xl mx-auto w-[512px] h-[384px] object-cover">
-        <p class="mt-2">I'm a software developer passionate about technology and building great products.</p>
-        <p class="mt-2">I'm a software developer passionate about technology and building great products.</p>
-        <p class="mt-2">I'm a software developer passionate about technology and building great products.</p>
-        <p class="mt-2">I'm a software developer passionate about technology and building great products.</p>
+        <ul class="mt-4 text-lg list-none"></ul>
+            <li><strong>Profession:</strong> Software Tester</li>
+            <li><strong>Hobby:</strong> Football</li>
+            <li><strong>Passion:</strong> Technology</li>
+            <li><strong>Favorite Place:</strong> Greek Islands</li>
+            <li><strong>Motivation:</strong> Securing my future family</li>
+            <li><strong>Bad Habit:</strong> Too much screen time, not enough self-thinking</li>
+
+    </ul>
     </section>
 
     <section id="projects" class="p-10 bg-gray-200 text-center">
         <h2 class="text-2xl font-semibold">Projects</h2>
-        <p class="mt-2">Coming soon...</p>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-xl font-bold">Portfolio</h3>
+                <p class="text-gray-600 mt-2">Personal portfolio website.</p>
+                <a href="https://github.com/ManosVourtsanis/Portfolio" class="text-blue-500 hover:underline mt-4 inline-block">View on GitHub</a>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-xl font-bold">Python Projects</h3>
+                <p class="text-gray-600 mt-2">A collection of small Python projects.</p>
+                <a href="https://github.com/ManosVourtsanis/Python-Projects" class="text-blue-500 hover:underline mt-4 inline-block">View on GitHub</a>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-xl font-bold">Web Scraper</h3>
+                <p class="text-gray-600 mt-2">A simple web scraper built with Python.</p>
+                <a href="https://github.com/ManosVourtsanis/Web-Scraper" class="text-blue-500 hover:underline mt-4 inline-block">View on GitHub</a>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-xl font-bold">Data Analysis</h3>
+                <p class="text-gray-600 mt-2">Data analysis projects using Pandas and NumPy.</p>
+                <a href="https://github.com/ManosVourtsanis/Data-Analysis" class="text-blue-500 hover:underline mt-4 inline-block">View on GitHub</a>
+            </div>
+            <div class="bg-white p-4 shadow rounded">
+                <h3 class="text-xl font-bold">Machine Learning Models</h3>
+                <p class="text-gray-600 mt-2">Implementations of various machine learning models.</p>
+                <a href="https://github.com/ManosVourtsanis/Machine-Learning-Models" class="text-blue-500 hover:underline mt-4 inline-block">View on GitHub</a>
+            </div>
+        </div>
     </section>
+    
 
     <section id="contact" class="p-10 text-center">
         <h2 class="text-2xl font-semibold">Contact</h2>
