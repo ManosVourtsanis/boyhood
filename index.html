@@ -15,70 +15,109 @@
     <link rel="icon" type="image/x-icon" href="/assets/images/football.ico">
 </head>
     
-<body class="bg-gray-100 text-gray-900 font-[Poppins]">
-    <header class="bg-gray-800 text-white text-center p-6">
+<body class="bg-gradient-to-br from-gray-900 to-gray-700 text-gray-100 font-[Poppins] pt-20">
+    <header class="bg-gray-900 text-white text-center p-4 fixed top-0 w-full z-50 shadow-md">
         <h1 class="text-3xl font-bold">Manos Vourtsanis</h1>
-        <nav class="mt-4">
-            <ul class="flex justify-center space-x-6">
+        
+        <button id="mobile-menu-button" class="md:hidden absolute right-6 top-4">
+            ☰
+        </button>
+    
+        <nav id="mobile-menu" class="hidden md:flex justify-center space-x-6 mt-4">
+            <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
                 <li><a href="#about" class="hover:underline">About</a></li>
                 <li><a href="#projects" class="hover:underline">Projects</a></li>
                 <li><a href="#contact" class="hover:underline">Contact</a></li>
             </ul>
         </nav>
     </header>
+    
 
-    <section id="about" class="p-10 text-center">
-        <h2 class="text-2xl font-semibold">About Me</h2>
+    <section id="about" class="p-10 text-center bg-gray-800">
         <img src="assets/images/profile.jpg" alt="My Photo" class="rounded-2xl mx-auto w-[512px] h-[384px] object-cover">
-        <ul class="mt-4 text-lg list-none"></ul>
-            <li><strong>Profession:</strong> Software Tester</li>
-            <li><strong>Hobby:</strong> Football</li>
-            <li><strong>Passion:</strong> Technology</li>
-            <li><strong>Favorite Place:</strong> Greek Islands</li>
-            <li><strong>Motivation:</strong> Securing my future family</li>
-            <li><strong>Bad Habit:</strong> Too much screen time, not enough self-thinking</li>
-
-    </ul>
+        <ul class="mt-4 text-lg list-none text-gray-300">
+            <li><span class="font-semibold text-blue-400">Profession:</span> Software Tester</li>
+            <li><span class="font-semibold text-blue-400">Hobby:</span> Football</li>
+            <li><span class="font-semibold text-blue-400">Passion:</span> Technology</li>
+            <li><span class="font-semibold text-blue-400">Favorite Place:</span> Greek Islands</li>
+            <li><span class="font-semibold text-blue-400">Motivation:</span> Securing my future family</li>
+            <li><span class="font-semibold text-blue-400">Bad Habit:</span> Too much screen time, not enough self-thinking</li>
+        </ul>
     </section>
 
-    <section id="projects" class="p-10 bg-gray-200 text-center">
+    <section id="projects" class="p-10 bg-gray-700 text-center">
         <h2 class="text-2xl font-semibold">Projects</h2>
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white p-4 shadow rounded">
-                <h3 class="text-xl font-bold">Portfolio</h3>
-                <p class="text-gray-600 mt-2">Personal portfolio website.</p>
-                <a href="https://github.com/ManosVourtsanis/Portfolio" class="text-blue-500 hover:underline mt-4 inline-block">View on GitHub</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded">
-                <h3 class="text-xl font-bold">Python Projects</h3>
-                <p class="text-gray-600 mt-2">A collection of small Python projects.</p>
-                <a href="https://github.com/ManosVourtsanis/Python-Projects" class="text-blue-500 hover:underline mt-4 inline-block">View on GitHub</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded">
-                <h3 class="text-xl font-bold">Web Scraper</h3>
-                <p class="text-gray-600 mt-2">A simple web scraper built with Python.</p>
-                <a href="https://github.com/ManosVourtsanis/Web-Scraper" class="text-blue-500 hover:underline mt-4 inline-block">View on GitHub</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded">
-                <h3 class="text-xl font-bold">Data Analysis</h3>
-                <p class="text-gray-600 mt-2">Data analysis projects using Pandas and NumPy.</p>
-                <a href="https://github.com/ManosVourtsanis/Data-Analysis" class="text-blue-500 hover:underline mt-4 inline-block">View on GitHub</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded">
-                <h3 class="text-xl font-bold">Machine Learning Models</h3>
-                <p class="text-gray-600 mt-2">Implementations of various machine learning models.</p>
-                <a href="https://github.com/ManosVourtsanis/Machine-Learning-Models" class="text-blue-500 hover:underline mt-4 inline-block">View on GitHub</a>
-            </div>
+        <div id="projects-container" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <p class="text-gray-400">Loading projects...</p>
         </div>
     </section>
     
-
-    <section id="contact" class="p-10 text-center">
+    <section id="contact" class="p-10 bg-gray-800 text-center">
         <h2 class="text-2xl font-semibold">Contact</h2>
         <p class="mt-2">
-            <a href="mailto:manos.vourtsanis@hotmail.com" class="text-blue-500 hover:underline">manos.vourtsanis@hotmail.com</a>
+            <a href="mailto:manos.vourtsanis@hotmail.com" class="text-blue-400 hover:underline">manos.vourtsanis@hotmail.com</a>
         </p>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const username = "ManosVourtsanis";
+            const repoContainer = document.getElementById("projects-container");
+
+            try {
+                const response = await fetch(`https://api.github.com/users/${username}/repos`);
+                let repos = await response.json();
+
+                repos = repos.filter(repo => !repo.fork) // Exclude forked repos
+                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // Sort by creation date (newest first)
+
+                repoContainer.innerHTML = repos
+                    .map(repo => `
+                        <div class="bg-gray-800 p-4 shadow rounded">
+                            <h3 class="text-xl font-bold">${repo.name}</h3>
+                            <p class="text-gray-400 mt-2">
+                                ${repo.description ? repo.description : "No description available."}
+                            </p>
+                            <a href="${repo.html_url}" target="_blank" class="text-blue-400 hover:underline mt-4 inline-block">
+                                View on GitHub
+                            </a>
+                        </div>
+                    `)
+                    .join("");
+
+            } catch (error) {
+                console.error("Error fetching GitHub repositories:", error);
+                repoContainer.innerHTML = "<p class='text-red-500'>Failed to load repositories.</p>";
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+        let count = localStorage.getItem("viewCount");
+        if (!count) {
+            count = 1;
+        } else {
+            count = parseInt(count) + 1;
+        }
+        localStorage.setItem("viewCount", count);
+        document.getElementById("view-counter").textContent = count;
+    });
+    </script>
 </body>
+
+<footer class="bg-gray-900 text-white text-center p-4 mt-10">
+    <p class="text-sm">
+        © 2025 Manos Vourtsanis. All rights reserved.  
+        This project is licensed under the  
+        <a href="https://github.com/ManosVourtsanis/boyhood/blob/main/LICENSE" 
+           class="text-blue-400 hover:underline" 
+           target="_blank" 
+           rel="noopener noreferrer">
+            MIT License
+        </a>.
+    </p>
+    <p class="text-gray-400 text-sm mt-2">
+        Views: <span id="view-counter">0</span>
+    </p>
+</footer>
 
 </html>
