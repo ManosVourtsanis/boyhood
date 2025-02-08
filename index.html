@@ -18,32 +18,40 @@
 <body class="bg-gradient-to-br from-gray-900 to-gray-700 text-gray-100 font-[Poppins] pt-20">
     <header class="bg-gray-900 text-white text-center p-4 fixed top-0 w-full z-50 shadow-md">
         <h1 class="text-3xl font-bold">Manos Vourtsanis</h1>
-        
-        <button id="mobile-menu-button" class="md:hidden absolute right-6 top-4">
-            ☰
-        </button>
-    
-        <nav id="mobile-menu" class="hidden md:flex justify-center space-x-6 mt-4">
-            <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+        <nav class="mt-4">
+            <ul class="flex justify-center space-x-6">
                 <li><a href="#about" class="hover:underline">About</a></li>
                 <li><a href="#projects" class="hover:underline">Projects</a></li>
+                <li><a href="#game" class="hover:underline">Game</a></li>
                 <li><a href="#contact" class="hover:underline">Contact</a></li>
             </ul>
         </nav>
     </header>
-    
 
-    <section id="about" class="p-10 text-center bg-gray-800">
-        <img src="assets/images/profile.jpg" alt="My Photo" class="rounded-2xl mx-auto w-[512px] h-[384px] object-cover">
-        <ul class="mt-4 text-lg list-none text-gray-300">
-            <li><span class="font-semibold text-blue-400">Profession:</span> Software Tester</li>
-            <li><span class="font-semibold text-blue-400">Hobby:</span> Football</li>
-            <li><span class="font-semibold text-blue-400">Passion:</span> Technology</li>
-            <li><span class="font-semibold text-blue-400">Favorite Place:</span> Greek Islands</li>
-            <li><span class="font-semibold text-blue-400">Motivation:</span> Securing my future family</li>
-            <li><span class="font-semibold text-blue-400">Bad Habit:</span> Too much screen time, not enough self-thinking</li>
-        </ul>
+    <section id="about" class="p-10 bg-gray-800 relative flex flex-col items-center">
+        <span id="about-anchor" class="absolute -top-40"></span>
+        
+        <h2 class="text-2xl font-semibold mb-6 text-center">About</h2>
+    
+        <div class="flex flex-col md:flex-row items-center md:items-start md:space-x-8">
+            <!-- Profile Image -->
+            <img src="assets/images/profile.jpg" 
+                 alt="My Photo" 
+                 class="rounded-2xl w-64 h-auto md:w-[500px] md:h-auto object-contain">
+    
+            <!-- Text Section -->
+            <ul class="mt-10 md:mt-20 text-lg text-gray-300 text-left space-y-3">
+                <li><span class="font-semibold text-blue-400">Profession:</span> Software Tester</li>
+                <li><span class="font-semibold text-blue-400">Hobby:</span> Football</li>
+                <li><span class="font-semibold text-blue-400">Passion:</span> Technology</li>
+                <li><span class="font-semibold text-blue-400">Favorite Place:</span> Greek Islands</li>
+                <li><span class="font-semibold text-blue-400">Motivation:</span> Securing my future family</li>
+                <li><span class="font-semibold text-blue-400">Bad Habit:</span> Too much screen time, not enough self-thinking</li>
+                <li><span class="font-semibold text-blue-400">Best Emoji:</span> No emojis</li>
+            </ul>
+        </div>
     </section>
+    
 
     <section id="projects" class="p-10 bg-gray-700 text-center">
         <h2 class="text-2xl font-semibold">Projects</h2>
@@ -51,8 +59,18 @@
             <p class="text-gray-400">Loading projects...</p>
         </div>
     </section>
+
+    <section id="game" class="p-10 bg-gray-800 text-center">
+        <h2 class="text-2xl font-semibold">Mini-Game: Click the Ball</h2>
+        <p class="text-gray-400">Click the moving ball to score points!</p>
+        <div id="game-area" class="relative w-80 h-80 mx-auto mt-6 border border-gray-500 rounded-lg">
+            <div id="ball" class="w-10 h-10 bg-red-500 rounded-full absolute cursor-pointer"></div>
+        </div>
+        <p class="mt-4 text-lg text-blue-400">Score: <span id="score">0</span></p>
+    </section>
     
-    <section id="contact" class="p-10 bg-gray-800 text-center">
+    
+    <section id="contact" class="p-10 bg-gray-700 text-center">
         <h2 class="text-2xl font-semibold">Contact</h2>
         <p class="mt-2">
             <a href="mailto:manos.vourtsanis@hotmail.com" class="text-blue-400 hover:underline">manos.vourtsanis@hotmail.com</a>
@@ -92,14 +110,55 @@
         });
 
         document.addEventListener("DOMContentLoaded", function () {
-        let count = localStorage.getItem("viewCount");
-        if (!count) {
-            count = 1;
-        } else {
-            count = parseInt(count) + 1;
+            let count = localStorage.getItem("viewCount");
+            if (!count) {
+                count = 1;
+            } else {
+                count = parseInt(count) + 1;
+            }
+            localStorage.setItem("viewCount", count);
+            document.getElementById("view-counter").textContent = count;
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
+
+            function revealSections() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (sectionTop < windowHeight * 0.9) {
+                        section.classList.add("opacity-100", "translate-y-0");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", revealSections);
+            revealSections(); // Run on load in case sections are already in view
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const ball = document.getElementById("ball");
+        const gameArea = document.getElementById("game-area");
+        const scoreDisplay = document.getElementById("score");
+        let score = 0;
+
+        function moveBall() {
+            const maxX = gameArea.clientWidth - ball.clientWidth;
+            const maxY = gameArea.clientHeight - ball.clientHeight;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            ball.style.transform = `translate(${randomX}px, ${randomY}px)`;
         }
-        localStorage.setItem("viewCount", count);
-        document.getElementById("view-counter").textContent = count;
+
+        ball.addEventListener("click", function () {
+            score++;
+            scoreDisplay.textContent = score;
+            moveBall();
+        });
+
+        setInterval(moveBall, 1000); // Move ball every 1 sec
     });
     </script>
 </body>
