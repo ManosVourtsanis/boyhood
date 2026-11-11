@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manos Vourtsanis - Software Engineer in Test. Portfolio showcasing projects and expertise in test automation.">
+    <meta name="description" content="Manos Vourtsanis - Software Engineer in Test. Playwright, API testing and AI-assisted test automation.">
     <title>Manos Vourtsanis - Software Engineer in Test</title>
-    
+
+    <!-- Open Graph (link previews on LinkedIn, Slack, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Manos Vourtsanis - Software Engineer in Test">
+    <meta property="og:description" content="Playwright, API testing and AI-assisted test automation. Based in Athens, Greece.">
+    <meta property="og:image" content="assets/images/profile.jpg">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/football.ico">
 </head>
@@ -20,179 +26,242 @@
     <header class="bg-gray-900/90 backdrop-blur text-white p-4 fixed top-0 w-full z-50 shadow-md">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <h1 class="text-xl md:text-2xl font-bold tracking-tight">Manos Vourtsanis</h1>
-  
+
         <!-- Desktop nav -->
-        <nav class="hidden md:block">
+        <nav class="hidden md:block" aria-label="Main">
           <ul class="flex justify-center space-x-6 text-sm">
-            <li><a data-nav href="#about" class="hover:text-blue-300 transition">About</a></li>
-            <li><a data-nav href="#projects" class="hover:text-blue-300 transition">Projects</a></li>
-            <li><a data-nav href="#contact" class="hover:text-blue-300 transition">Contact</a></li>
+            <li><a href="#about" class="hover:text-blue-300 transition">About</a></li>
+            <li><a href="#experience" class="hover:text-blue-300 transition">Experience</a></li>
+            <li><a href="#projects" class="hover:text-blue-300 transition">Projects</a></li>
+            <li><a href="#contact" class="hover:text-blue-300 transition">Contact</a></li>
           </ul>
         </nav>
-  
+
         <!-- Mobile nav button -->
-        <button id="menuBtn" class="md:hidden px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition">
+        <button id="menuBtn" aria-controls="mobileMenu" aria-expanded="false"
+                class="md:hidden px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition">
           Menu
         </button>
       </div>
-  
+
       <!-- Mobile dropdown -->
-      <div id="mobileMenu" class="md:hidden hidden max-w-6xl mx-auto mt-3">
+      <nav id="mobileMenu" class="md:hidden hidden max-w-6xl mx-auto mt-3" aria-label="Mobile">
         <div class="bg-gray-800 rounded-xl p-3 space-y-2 text-sm">
           <a href="#about" class="block hover:text-blue-300 transition">About</a>
+          <a href="#experience" class="block hover:text-blue-300 transition">Experience</a>
           <a href="#projects" class="block hover:text-blue-300 transition">Projects</a>
           <a href="#contact" class="block hover:text-blue-300 transition">Contact</a>
         </div>
-      </div>
+      </nav>
     </header>
-  
+
     <!-- ABOUT -->
     <section id="about" class="p-10 bg-gray-800 relative">
       <div class="max-w-6xl mx-auto">
         <div class="opacity-0 translate-y-3 transition duration-700" data-reveal>
           <h2 class="text-2xl font-semibold mb-6">About</h2>
-  
+
           <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
             <img src="assets/images/profile.jpg"
                  alt="Photo of Manos Vourtsanis"
                  class="rounded-2xl w-64 md:w-[420px] h-auto object-cover shadow-lg border border-white/10" />
-  
+
             <div class="flex-1">
               <p class="text-lg text-gray-200 leading-relaxed">
-                I’m a <span class="text-blue-300 font-semibold">Software Engineer in Test</span> focused on building reliable,
-                maintainable automation for modern web products.
+                I’m a <span class="text-blue-300 font-semibold">Software Engineer in Test</span> at Kaizen Gaming (Betano),
+                building Playwright and BDD automation for regulated betting products.
               </p>
-  
+
               <p class="text-gray-300 mt-3 leading-relaxed">
-                I enjoy backend-friendly testing: APIs, integration checks, solid test data, and CI pipelines.
+                I test web apps and APIs end to end, and I use AI coding agents every day to write tests faster,
+                reviewing every generated line before it ships. On the side I build and ship full-stack and mobile
+                products, so I know what developers need from a good bug report.
+              </p>
+
+              <p class="text-gray-300 mt-3 leading-relaxed">
                 Outside work, I play football almost every day.
               </p>
-  
+
               <!-- Chips -->
-              <div class="mt-6 flex flex-wrap gap-2">
-                <span class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">Playwright</span>
-                <span class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">TypeScript</span>
-                <span class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">C#</span>
-                <span class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">SpecFlow / ReqnRoll</span>
-                <span class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">API Testing</span>
-                <span class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">CI/CD</span>
-              </div>
-  
+              <ul class="mt-6 flex flex-wrap gap-2" aria-label="Skills">
+                <li class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">Playwright</li>
+                <li class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">TypeScript</li>
+                <li class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">C# / .NET</li>
+                <li class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">Reqnroll / SpecFlow (BDD)</li>
+                <li class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">API Testing · Postman</li>
+                <li class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">AI-assisted testing</li>
+                <li class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">GitHub Actions</li>
+                <li class="px-3 py-1 rounded-full bg-gray-700 text-sm text-gray-200 border border-white/10">ISTQB CTFL</li>
+              </ul>
+
               <!-- CTAs -->
               <div class="mt-7 flex flex-wrap gap-3">
                 <a href="https://github.com/ManosVourtsanis" target="_blank" rel="noopener noreferrer"
                    class="px-4 py-2 rounded-xl bg-blue-500/90 hover:bg-blue-500 transition font-semibold shadow">
                   GitHub
                 </a>
-  
-                <!-- Optional: add your CV file in /assets -->
+
                 <a href="assets/Emmanouil_Vourtsanis.pdf" target="_blank" rel="noopener noreferrer"
                    class="px-4 py-2 rounded-xl bg-gray-700 hover:bg-gray-600 transition font-semibold border border-white/10">
                   Download CV
                 </a>
-  
+
                 <a href="https://www.linkedin.com/in/manosvou/" target="_blank" rel="noopener noreferrer"
                    class="px-4 py-2 rounded-xl bg-gray-700 hover:bg-gray-600 transition font-semibold border border-white/10">
                   LinkedIn
                 </a>
               </div>
-  
+
               <div class="mt-6 text-sm text-gray-400">
-                Based in Athens, Greece • Motivation: freedom • Views: <span id="view-counter">0</span>
+                Based in Athens, Greece · Open to remote and freelance QA work
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  
-    <!-- PROJECTS -->
-    <section id="projects" class="p-10 bg-gray-700">
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="p-10 bg-gray-700">
       <div class="max-w-6xl mx-auto">
         <div class="opacity-0 translate-y-3 transition duration-700" data-reveal>
-          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <h2 class="text-2xl font-semibold mb-6">Experience</h2>
+
+          <ol class="relative border-l border-white/15 space-y-8 ml-2">
+            <li class="pl-6">
+              <span class="absolute -left-[7px] mt-2 w-3 h-3 rounded-full bg-blue-400"></span>
+              <h3 class="text-lg font-semibold">Software Engineer in Test · Kaizen Gaming (Betano)</h3>
+              <p class="text-sm text-gray-400">04/2023 – Present · Athens, Greece</p>
+              <ul class="mt-2 text-gray-300 text-sm leading-relaxed list-disc ml-5 space-y-1">
+                <li>Helped build and maintain a BDD automation suite with Reqnroll/SpecFlow and Playwright (C#).</li>
+                <li>Wrote unit tests to raise coverage on backend services.</li>
+                <li>Designed and documented 500+ test scenarios for betting and regulatory-reporting features.</li>
+                <li>API testing with Postman, data checks with SQL Server and Databricks, cross-browser runs on Sauce Labs.</li>
+              </ul>
+            </li>
+
+            <li class="pl-6">
+              <span class="absolute -left-[7px] mt-2 w-3 h-3 rounded-full bg-blue-400"></span>
+              <h3 class="text-lg font-semibold">Full-Stack Engineer (Freelance) · Seago</h3>
+              <p class="text-sm text-gray-400">06/2025 – Present · Remote</p>
+              <ul class="mt-2 text-gray-300 text-sm leading-relaxed list-disc ml-5 space-y-1">
+                <li>Build and maintain the web version of Seago’s React Native (Expo) app for boat rentals, sea transfers and experiences, and work on its backend.</li>
+                <li>Own the release-to-web merge for every mobile release, following documented rules for conflicts and rollback.</li>
+                <li>Built e-Charter, Seago’s charter-contract tool (Spring Boot, React, MongoDB) that generates printable charter documents.</li>
+              </ul>
+            </li>
+
+            <li class="pl-6">
+              <span class="absolute -left-[7px] mt-2 w-3 h-3 rounded-full bg-gray-400"></span>
+              <h3 class="text-lg font-semibold">Intern Software Engineer · METRO AEBE</h3>
+              <p class="text-sm text-gray-400">07/2019 – 09/2019 · Athens, Greece</p>
+              <ul class="mt-2 text-gray-300 text-sm leading-relaxed list-disc ml-5 space-y-1">
+                <li>Built an MVC web app for managing in-store screen ads, and the Android app that displays them.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="p-10 bg-gray-800">
+      <div class="max-w-6xl mx-auto">
+        <div class="opacity-0 translate-y-3 transition duration-700" data-reveal>
+          <h2 class="text-2xl font-semibold">Featured projects</h2>
+          <div id="featured-container" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+          <div class="mt-14 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div class="text-left">
-              <h2 class="text-2xl font-semibold">Projects</h2>
+              <h2 class="text-2xl font-semibold">All public repositories</h2>
               <p class="text-gray-300 mt-2">
-                A selection of repos — newest first, with search & sorting.
+                Pulled live from GitHub, with search and sorting.
               </p>
             </div>
-  
+
             <div class="flex flex-col sm:flex-row gap-3">
+              <label class="sr-only" for="projectSearch">Search repositories</label>
               <input id="projectSearch"
-                     placeholder="Search projects..."
-                     class="px-4 py-2 rounded-xl bg-gray-800 border border-white/10 outline-none focus:ring-2 focus:ring-blue-400/60"
+                     placeholder="Search repositories..."
+                     class="px-4 py-2 rounded-xl bg-gray-900 border border-white/10 outline-none focus:ring-2 focus:ring-blue-400/60"
               />
-  
+
+              <label class="sr-only" for="projectSort">Sort repositories</label>
               <select id="projectSort"
-                      class="px-4 py-2 rounded-xl bg-gray-800 border border-white/10 outline-none focus:ring-2 focus:ring-blue-400/60">
+                      class="px-4 py-2 rounded-xl bg-gray-900 border border-white/10 outline-none focus:ring-2 focus:ring-blue-400/60">
                 <option value="created">Newest</option>
                 <option value="updated">Recently updated</option>
                 <option value="stars">Most starred</option>
               </select>
             </div>
           </div>
-  
-          <div id="projects-container" class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <p class="text-gray-300">Loading projects...</p>
+
+          <div id="projects-container" class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" aria-live="polite">
+            <p class="text-gray-300">Loading repositories...</p>
           </div>
-  
+
           <p id="rateLimitNote" class="hidden mt-6 text-sm text-yellow-200">
-            GitHub API rate limit hit. Showing pinned projects only.
+            GitHub’s API limit was reached, so the repository list could not load.
+            <a href="https://github.com/ManosVourtsanis?tab=repositories" target="_blank" rel="noopener noreferrer"
+               class="underline">See them on GitHub</a>.
           </p>
         </div>
       </div>
     </section>
-  
+
     <!-- CONTACT -->
-    <section id="contact" class="p-10 bg-gray-800">
+    <section id="contact" class="p-10 bg-gray-700">
       <div class="max-w-6xl mx-auto text-center">
         <div class="opacity-0 translate-y-3 transition duration-700" data-reveal>
           <h2 class="text-2xl font-semibold">Contact</h2>
           <p class="mt-3 text-gray-300">If you want to collaborate or hire me:</p>
           <p class="mt-3">
-            <a href="mailto:manos.vourtsanis@hotmail.com" class="text-blue-300 hover:underline">
-              manos.vourtsanis@hotmail.com
+            <a href="mailto:manosvourtsanis7@gmail.com" class="text-blue-300 hover:underline">
+              manosvourtsanis7@gmail.com
             </a>
           </p>
         </div>
       </div>
     </section>
-  
+
     <!-- Back to top -->
-    <button id="backToTop"
+    <button id="backToTop" aria-label="Back to top"
             class="hidden fixed bottom-6 right-6 px-4 py-2 rounded-xl bg-gray-900/90 border border-white/10 shadow-lg hover:bg-gray-800 transition">
       ↑ Top
     </button>
-  
-    <footer class="bg-gray-900 text-white text-center p-4 mt-10">
+
+    <footer class="bg-gray-900 text-white text-center p-4">
       <p class="text-sm">
-        © 2026 Manos Vourtsanis. All rights reserved.
-        This project is licensed under the
+        © 2026 Manos Vourtsanis. This site is open source under the
         <a href="https://github.com/ManosVourtsanis/boyhood/blob/main/LICENSE"
            class="text-blue-300 hover:underline"
            target="_blank"
-           rel="noopener noreferrer">
-          MIT License
-        </a>.
+           rel="noopener noreferrer">MIT License</a>
+        and covered by Playwright tests that run in GitHub Actions.
       </p>
     </footer>
-  
+
     <script>
+      // ===== Helpers =====
+      const escapeHtml = (value) => String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
+      const safeUrl = (value) => /^https:\/\//.test(value || "") ? value : "";
+
       // ===== Mobile menu =====
       const menuBtn = document.getElementById("menuBtn");
       const mobileMenu = document.getElementById("mobileMenu");
-      menuBtn?.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
-  
-      // ===== View counter (local only) =====
-      (function viewCounter() {
-        let count = localStorage.getItem("viewCount");
-        count = count ? (parseInt(count, 10) + 1) : 1;
-        localStorage.setItem("viewCount", count);
-        const vc = document.getElementById("view-counter");
-        if (vc) vc.textContent = count;
-      })();
-  
+      const setMenuOpen = (open) => {
+        mobileMenu.classList.toggle("hidden", !open);
+        menuBtn.setAttribute("aria-expanded", String(open));
+      };
+      menuBtn?.addEventListener("click", () => setMenuOpen(mobileMenu.classList.contains("hidden")));
+      mobileMenu?.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setMenuOpen(false)));
+
       // ===== Reveal on scroll =====
       const reveals = document.querySelectorAll("[data-reveal]");
       const revealObserver = new IntersectionObserver((entries) => {
@@ -204,198 +273,169 @@
           }
         });
       }, { threshold: 0.12 });
-  
+
       reveals.forEach(el => revealObserver.observe(el));
-  
+
       // ===== Back to top =====
       const backToTop = document.getElementById("backToTop");
       window.addEventListener("scroll", () => {
-        if (window.scrollY > 600) backToTop.classList.remove("hidden");
-        else backToTop.classList.add("hidden");
+        backToTop.classList.toggle("hidden", window.scrollY <= 600);
       });
       backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  
-      // ===== Projects: pinned + GitHub fetch + search + sort =====
+
+      // ===== Featured projects (hand-picked) =====
+      const featured = [
+        {
+          name: "Seago",
+          description: "Marketplace app for boat rentals, sea transfers and experiences, live on iOS, Android and web. I build and maintain the web version from the shared React Native codebase.",
+          tags: ["React Native", "Expo", "TypeScript", "Firebase"],
+          links: []
+        },
+        {
+          name: "Playwright Test Automation Framework",
+          description: "UI and API test suite with Page Objects, running across Chromium, Firefox and WebKit.",
+          tags: ["Playwright", "TypeScript", "API testing"],
+          links: [{ label: "GitHub", url: "https://github.com/ManosVourtsanis/saas-test-automation-template" }]
+        },
+        {
+          name: "Premier Bet",
+          description: "Lite betting app with a fine-tuned BERT model that turns a free-text request into bet selections. Also my Playwright playground.",
+          tags: ["BERT", "Next.js", ".NET 8", "Playwright"],
+          links: []
+        },
+        {
+          name: "e-Charter",
+          description: "Charter-contract tool for Seago: users enter charter details online and get complete, printable charter documents.",
+          tags: ["Spring Boot", "React", "MongoDB"],
+          links: []
+        },
+        {
+          name: "DOM Quiz App",
+          description: "Cross-platform quiz app with real-time multiplayer rooms, live scoreboards, friends and offline support.",
+          tags: ["React Native", "Expo", "Supabase"],
+          links: []
+        },
+        {
+          name: "This portfolio",
+          description: "Static site with Playwright end-to-end tests (GitHub API mocked) that run on every push in GitHub Actions.",
+          tags: ["Playwright", "GitHub Actions"],
+          links: [{ label: "GitHub", url: "https://github.com/ManosVourtsanis/boyhood" }]
+        }
+      ];
+
+      function chip(text) {
+        return `<span class="px-2 py-1 rounded-lg bg-gray-700 border border-white/10">${escapeHtml(text)}</span>`;
+      }
+
+      function featuredCardHtml(project) {
+        const links = project.links
+          .filter(l => safeUrl(l.url))
+          .map(l => `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer"
+                        class="text-blue-300 hover:underline font-semibold">${escapeHtml(l.label)} →</a>`)
+          .join("");
+
+        return `
+          <article data-testid="featured-card" class="bg-gray-900/60 p-5 shadow-lg rounded-2xl border border-white/10 flex flex-col">
+            <h3 class="text-lg font-bold break-words">${escapeHtml(project.name)}</h3>
+            <p class="text-gray-300 mt-2 text-sm leading-relaxed flex-grow">${escapeHtml(project.description)}</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs text-gray-300">${project.tags.map(chip).join("")}</div>
+            ${links ? `<div class="mt-5 flex gap-4">${links}</div>` : ""}
+          </article>
+        `;
+      }
+
+      const featuredContainer = document.getElementById("featured-container");
+      if (featuredContainer) featuredContainer.innerHTML = featured.map(featuredCardHtml).join("");
+
+      // ===== All repositories: GitHub fetch + search + sort =====
       const username = "ManosVourtsanis";
       const repoContainer = document.getElementById("projects-container");
       const projectSearch = document.getElementById("projectSearch");
       const projectSort = document.getElementById("projectSort");
       const rateLimitNote = document.getElementById("rateLimitNote");
-  
-      // Pinned projects (edit these)
-      const pinned = [
-        // { name: "Circe", description: "Minimal marketplace for my apps.", url: "https://github.com/...", demo: "" },
-      ];
-  
+
       let allRepos = [];
-  
-      function renderRepos(repos) {
-        if (!repoContainer) return;
-  
-        if (!repos.length && pinned.length) {
-          repoContainer.innerHTML = pinned.map(p => cardHtml({
-            name: p.name, description: p.description, html_url: p.url, language: "", stargazers_count: 0, forks_count: 0, updated_at: ""
-          }, p.demo)).join("");
-          return;
-        }
-  
-        repoContainer.innerHTML = repos.map(r => cardHtml(r)).join("");
-      }
-  
-      function cardHtml(repo, demoUrl = "") {
-        const desc = repo.description ? repo.description : "No description available.";
+
+      function repoCardHtml(repo) {
+        const desc = repo.description || "No description available.";
         const updated = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString() : "";
-        const lang = repo.language ? repo.language : "";
-        const stars = repo.stargazers_count ?? 0;
-        const forks = repo.forks_count ?? 0;
+        const url = safeUrl(repo.html_url);
 
         return `
-          <div class="bg-gray-800 p-5 shadow-lg rounded-2xl border border-white/10 hover:-translate-y-0.5 hover:shadow-xl transition flex flex-col">
-            <h3 class="text-lg font-bold break-words">${repo.name}</h3>
-
-            <p class="text-gray-300 mt-2 text-sm leading-relaxed min-h-[44px] flex-grow">
-              ${desc}
-            </p>
-
+          <article data-testid="repo-card" class="bg-gray-900/60 p-5 shadow-lg rounded-2xl border border-white/10 hover:-translate-y-0.5 hover:shadow-xl transition flex flex-col">
+            <h3 class="text-lg font-bold break-words">${escapeHtml(repo.name)}</h3>
+            <p class="text-gray-300 mt-2 text-sm leading-relaxed min-h-[44px] flex-grow">${escapeHtml(desc)}</p>
             <div class="mt-4 flex flex-wrap gap-2 text-xs text-gray-300">
-              ${lang ? `<span class="px-2 py-1 rounded-lg bg-gray-700 border border-white/10">${lang}</span>` : ""}
-              <span class="px-2 py-1 rounded-lg bg-gray-700 border border-white/10">⭐ ${stars}</span>
-              <span class="px-2 py-1 rounded-lg bg-gray-700 border border-white/10">🍴 ${forks}</span>
-              ${updated ? `<span class="px-2 py-1 rounded-lg bg-gray-700 border border-white/10">Updated: ${updated}</span>` : ""}
+              ${repo.language ? chip(repo.language) : ""}
+              ${chip(`⭐ ${repo.stargazers_count ?? 0}`)}
+              ${updated ? chip(`Updated: ${updated}`) : ""}
             </div>
-
-            <div class="mt-5 flex justify-between items-end">
-              <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
-                 class="text-blue-300 hover:underline font-semibold">
-                GitHub →
-              </a>
-              ${demoUrl ? `<a href="${demoUrl}" target="_blank" rel="noopener noreferrer"
-                 class="text-gray-200 hover:underline font-semibold">
-                Live demo →
-              </a>` : ""}
-            </div>
-          </div>
+            ${url ? `<div class="mt-5">
+              <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:underline font-semibold">GitHub →</a>
+            </div>` : ""}
+          </article>
         `;
       }
-  
+
       function applyFilters() {
-        const q = (projectSearch?.value || "").toLowerCase();
+        const q = (projectSearch?.value || "").trim().toLowerCase();
         const sort = projectSort?.value || "created";
-  
-        let repos = [...allRepos];
-  
-        // search
-        if (q) {
-          repos = repos.filter(r =>
-            (r.name || "").toLowerCase().includes(q) ||
-            (r.description || "").toLowerCase().includes(q)
-          );
-        }
-  
-        // sort
-        if (sort === "created") {
-          repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-        } else if (sort === "updated") {
-          repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-        } else if (sort === "stars") {
-          repos.sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0));
-        }
-  
-        // prepend pinned (simple approach)
-        const pinnedCards = pinned.map(p => ({
-          name: p.name,
-          description: p.description,
-          html_url: p.url,
-          language: "",
-          stargazers_count: 0,
-          forks_count: 0,
-          created_at: "1970-01-01",
-          updated_at: ""
-        }));
-  
-        renderRepos([...pinnedCards, ...repos]);
+
+        let repos = allRepos.filter(r =>
+          !q ||
+          (r.name || "").toLowerCase().includes(q) ||
+          (r.description || "").toLowerCase().includes(q)
+        );
+
+        const byDate = (key) => (a, b) => new Date(b[key]) - new Date(a[key]);
+        if (sort === "created") repos.sort(byDate("created_at"));
+        else if (sort === "updated") repos.sort(byDate("updated_at"));
+        else if (sort === "stars") repos.sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0));
+
+        repoContainer.innerHTML = repos.length
+          ? repos.map(repoCardHtml).join("")
+          : `<p class="text-gray-300">No repositories match “${escapeHtml(q)}”.</p>`;
       }
-  
+
       async function loadRepos() {
+        const fetched = [];
+        let page = 1;
+
         try {
-          let allFetchedRepos = [];
-          let page = 1;
-          let hasMore = true;
+          while (true) {
+            const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&page=${page}`);
 
-          // Fetch all pages of repos
-          while (hasMore) {
-            const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&page=${page}`, { cache: "no-store" });
-
-            if (response.status === 403) {
-              // Likely rate limit
-              if (rateLimitNote) rateLimitNote.classList.remove("hidden");
-              if (allFetchedRepos.length === 0) {
-                allRepos = [];
-                applyFilters();
-              } else {
-                // Use what we got so far
-                allRepos = allFetchedRepos
-                  .filter(repo => !repo.fork)
-                  .map(r => ({
-                    name: r.name,
-                    description: r.description,
-                    html_url: r.html_url,
-                    language: r.language,
-                    stargazers_count: r.stargazers_count,
-                    forks_count: r.forks_count,
-                    created_at: r.created_at,
-                    updated_at: r.updated_at
-                  }));
-                applyFilters();
-              }
-              return;
+            if (response.status === 403 || response.status === 429) {
+              rateLimitNote?.classList.remove("hidden");
+              break;
             }
-
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
             const repos = await response.json();
-            
-            if (repos.length === 0) {
-              hasMore = false;
-            } else {
-              allFetchedRepos = allFetchedRepos.concat(repos);
-              // Check if there are more pages by checking Link header
-              const linkHeader = response.headers.get("Link");
-              if (linkHeader && linkHeader.includes('rel="next"')) {
-                page++;
-              } else {
-                hasMore = false;
-              }
-            }
+            fetched.push(...repos);
+
+            const link = response.headers.get("Link") || "";
+            if (!repos.length || !link.includes('rel="next"')) break;
+            page++;
           }
-
-          allRepos = allFetchedRepos
-            .filter(repo => !repo.fork)
-            .map(r => ({
-              name: r.name,
-              description: r.description,
-              html_url: r.html_url,
-              language: r.language,
-              stargazers_count: r.stargazers_count,
-              forks_count: r.forks_count,
-              created_at: r.created_at,
-              updated_at: r.updated_at
-            }));
-
-          applyFilters();
-
         } catch (error) {
           console.error("Error fetching GitHub repositories:", error);
-          if (repoContainer) repoContainer.innerHTML = "<p class='text-red-300'>Failed to load repositories.</p>";
+          repoContainer.innerHTML = "<p class='text-red-300'>Failed to load repositories.</p>";
+          return;
         }
+
+        allRepos = fetched.filter(repo => !repo.fork);
+        if (!allRepos.length && !rateLimitNote?.classList.contains("hidden")) {
+          repoContainer.innerHTML = "";
+          return;
+        }
+        applyFilters();
       }
-  
+
       projectSearch?.addEventListener("input", applyFilters);
       projectSort?.addEventListener("change", applyFilters);
-  
-      document.addEventListener("DOMContentLoaded", loadRepos);
+
+      loadRepos();
     </script>
 </body>
 </html>
