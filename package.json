@@ -1,0 +1,16 @@
+{
+  "name": "boyhood-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio site with Playwright end-to-end tests",
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  },
+  "license": "MIT"
+}
